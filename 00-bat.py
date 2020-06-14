@@ -1,5 +1,5 @@
 import os
-newPath = os.getcwd() + '/Desktop/Code/MidpointsMath/Scripts'
+newPath = os.getcwd() + '/Desktop/Code/Number Theory Testing/Scripts'
 os.chdir(newPath)
 
 print('\n  ---  Entered directory  ---  \n')
