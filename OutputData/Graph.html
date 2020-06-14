@@ -1,0 +1,95 @@
+<html>
+	<head>
+		<title>My Graphs</title>
+		<script type="text/javascript" src = "data.js"></script> <!-- Sources "data.js" from Master -->
+		<script type="application/javascript">
+    function draw() {
+      var canvas = document.getElementById('canvas');
+      if (canvas.getContext) {
+        var ctx = canvas.getContext('2d');  //Creates an instance of canvas
+
+        //Draws the x and y axes
+        ctx.beginPath();
+	    	ctx.lineTo(1320, 660); //(Max, 0)
+	    	ctx.lineTo(10, 660);   //(0,0)
+	    	ctx.lineTo(10,0);     //(0,Max)
+	    	ctx.stroke();
+
+        //Thickens the x and y axes
+        ctx.beginPath();
+        ctx.lineTo(1320, 661); //(Max, 0)
+        ctx.lineTo(9, 661);   //(0,0)
+        ctx.lineTo(9,0);     //(0,Max)
+        ctx.stroke();
+
+        var e = limits[0]/10;
+        for (var i = 140; i <= 1310 ; i = i + 130) {
+            //Draws each vertical gridline
+            ctx.beginPath();
+            ctx.lineTo(i, 660);
+            ctx.lineTo(i, 670);
+            ctx.stroke();
+
+            if (gridlines) {
+                ctx.beginPath();
+                ctx.lineTo(i, 0);
+                ctx.lineTo(i, 660);
+                ctx.stroke();
+            }
+
+            //Labels the increments along the x axis.
+            ctx.fillStyle = "Black";
+            ctx.font = "15px Arial";
+            ctx.fillText(e, i-20, 687 );
+            e += limits[0]/10;
+        }
+
+        for (var i = 530; i >= 10 ; i = i - 130) {
+            //Draws the horizontal gridlines
+            ctx.beginPath();
+            ctx.lineTo(0, i);
+            ctx.lineTo(10, i);
+            ctx.stroke();
+
+            if (gridlines) {
+                ctx.beginPath();
+                ctx.lineTo(10, i);
+                ctx.lineTo(1320, i);
+                ctx.stroke();
+            }
+        }
+
+        //Labels the max y value. Increments are NOT included
+        ctx.fillStyle = "Black";
+        ctx.font = "15px Arial";
+        ctx.fillText(limits[1], 20, 30 );
+
+
+
+    	for (var row = 0; row < data.length; row++) {  //For each x axis value
+    		var xAxis = data[row][0];
+    		for (var column = 1; column < data[row].length; column++) {   //For each y axis value
+    			var yAxis = data[row][column];
+    			drawPoint(xAxis, yAxis, ctx );  //Draw a point at (x,y)
+    		}
+    	}
+      }
+    };
+
+    /*
+    *   drawPoint draws a dot at the given coordinates on the ctx canvas
+    */
+    function drawPoint(x, y, ctx) {
+    	ctx.beginPath();
+		// ctx.arc(x, y, 1, 0, 2 * Math.PI, true);
+        ctx.fillRect(x,y,2,2);
+		ctx.stroke();
+    };
+  </script>
+	</head>
+	<body onload="draw();">
+		<canvas id="canvas" width="1340" height="700">
+			<!-- Creates a canvas of size 1340x700 -->
+		</canvas>
+	</body>
+</html>
