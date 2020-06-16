@@ -16,11 +16,19 @@
 attach('Lib.sage')
 
 # ==========================================================================
+# WAY faster than the older method
 
+length = lambda denominator, i: Mod(i, denominator).multiplicative_order()
+
+# ==========================================================================
 # returns length of repeating decimal expansion for 1/denominator in base i
-def length(denominator, i = 10):
+
+def length2(denominator, i = 10):
 	if gcd(denominator, i) != 1:
 		raise AssertionError('GCD must be 1')
+
+	if denominator == 1:
+		raise AssertionError('Denominator can\'t be 1')
 
 	retLength = 0
 	remainder = 1
@@ -87,19 +95,22 @@ def quotient(denominator, i = 10, numerator = 1):
 # ==========================================================================
 
 def inexplicableRatioS1():
-	printer3 = getPrinter('Temp3.txt')
-	printer4 = getPrinter('Temp4.txt')
-	printer5 = getPrinter('Temp5.txt')
+	printerA = getPrinter('Temp9_1.txt')
+	printerB = getPrinter('Temp10_1.txt')
+	printerC = getPrinter('Temp11_1.txt')
+	printerD = getPrinter('Temp12_1.txt')
 
-	n1 = 3
-	n2 = 4
-	n3 = 5
+	n1 = 9
+	n2 = 10
+	n3 = 11
+	n4 = 12
 
 	try:
-		for i in xsrange(740, 3000):
+		for i in xsrange(2, 3126):
 			x1 = [0]*n1
 			x2 = [0]*n2
 			x3 = [0]*n3
+			x4 = [0]*n4
 
 			y = 0
 			prime = 3
@@ -113,6 +124,7 @@ def inexplicableRatioS1():
 					x1[lenVal%n1] += 1
 					x2[lenVal%n2] += 1
 					x3[lenVal%n3] += 1
+					x4[lenVal%n4] += 1
 
 					count += 1
 
@@ -122,24 +134,29 @@ def inexplicableRatioS1():
 			outputStr1 = str(i) + ', ' + ', '.join(map(str, x1))
 			outputStr2 = str(i) + ', ' + ', '.join(map(str, x2))
 			outputStr3 = str(i) + ', ' + ', '.join(map(str, x3))
+			outputStr4 = str(i) + ', ' + ', '.join(map(str, x4))
 
 			print(outputStr)
-			printer3.write(outputStr1 + '\n')
-			printer4.write(outputStr2 + '\n')
-			printer5.write(outputStr3 + '\n')
+			printerA.write(outputStr1 + '\n')
+			printerB.write(outputStr2 + '\n')
+			printerC.write(outputStr3 + '\n')
+			printerD.write(outputStr4 + '\n')
 
 	except KeyboardInterrupt:
-		printer3.close()
-		printer4.close()
-		printer5.close()
+		printerA.close()
+		printerB.close()
+		printerC.close()
+		printerD.close()
 	except:
-		printer3.close()
-		printer4.close()
-		printer5.close()
+		printerA.close()
+		printerB.close()
+		printerC.close()
+		printerD.close()
 
-	printer3.close()
-	printer4.close()
-	printer5.close()
+	printerA.close()
+	printerB.close()
+	printerC.close()
+	printerD.close()
 
 # ==========================================================================
 

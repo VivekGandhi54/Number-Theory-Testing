@@ -390,6 +390,8 @@ def editFile(fileName):
 	if fileName.endswith('.sage'):
 		path += fileName
 
+	path = '"' + path + '"'
+
 	os.system('"C:/Program Files/Sublime Text 3/subl.exe" ' + path)
 
 # ==========================================================================

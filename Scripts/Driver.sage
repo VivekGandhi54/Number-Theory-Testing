@@ -28,10 +28,9 @@ denIsPrime = True	# Is the denominator prime?
 
 
 
-
 # --------------------------------------------------------------------------
 
-reader = getReader('IRatio - Lows.txt')
+reader = getReader('Temp10_1.txt')
 
 lineReader = reader.readlines()
 
@@ -43,21 +42,22 @@ x = []
 y = []
 
 for line in lineReader:
-	splitVal = line.split(',')
-
-	y2 = splitVal[3].strip('\n')
-	y1 = splitVal[2]
-	y0 = splitVal[1]
+	splitVal = list(map(int, [each.strip('\n') for each in line.split(',')]))
 
 	num = splitVal[0]
 
-	val = int(y1)/5000
+	val = splitVal[1]/sum(splitVal[1:])
 
-	# if val > 0.3 and 0.37 > val:
 	points.append((num, val))
 	x.append(val)
+
+	if is_square(num):
+		print('-'*20)
+
+	if val < 0.1:
+		print(pf(num))
+
 	# 	y.append(float(splitVal[0]))
-	# print(num)
 
 
 # for each in points:
