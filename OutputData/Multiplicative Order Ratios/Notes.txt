@@ -1,0 +1,18 @@
+
+N = 2
+
+Val = Count(0(Mod 2))/All
+
+Lower = 0.5
+Upper = 0.69
+
+Mean = 0.666 ~ 2/3
+
+Higher outliers: num = (2*a*a) for all integers a
+Lower outliers: num = (a*a) for all integers a
+
+0.4 to 0.5: num = 4*(a^4)
+< 0.25: num = a^4
+
+----------------------------------------------------------------------------
+

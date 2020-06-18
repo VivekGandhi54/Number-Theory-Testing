@@ -162,16 +162,16 @@ def inexplicableRatioS1():
 
 def inexplicableRatio(n = 2):
 
-	printer = getPrinter('Temp.txt')
+	printer = getPrinter('Temp2.txt')
 
 	try:
-		for i in xsrange(2, 3000):
+		for i in xsrange(2, 3126):
 			x = [0]*n
 			y = 0
 			prime = 3
 			count = 1
 
-			while count <= 1000:
+			while count <= 5000:
 				if gcd(prime, i) == 1:
 					
 					lenVal = length(prime, i)%n
