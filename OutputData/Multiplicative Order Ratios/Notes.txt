@@ -16,3 +16,6 @@ Lower outliers: num = (a*a) for all integers a
 
 ----------------------------------------------------------------------------
 
+When plotting out values on a 2-D Excel thing (ModN = 2 case), it is evident that the
+0's between the 1's and vice versa are always powers of 2. Even with the spaces of
+non-coprimes in between.

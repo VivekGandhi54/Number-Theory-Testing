@@ -251,5 +251,31 @@ def isComposite(num):
 
 # ==========================================================================
 
+def generate2DData(xlim = 100, ylim = 100, modN = 1):
+
+	printer = getPrinter('2D_View.csv')
+
+	for row in xsrange(2, ylim + 1):
+		
+		inputLine = ''
+
+		for column in xsrange(2, xlim + 1):
+			# pass
+			if gcd(row, column) == 1:
+				val = length(row, column)
+				val = Mod(val, modN) if (modN != 1) else val
+
+				inputLine += str(val) + ', '
+			else:
+				inputLine += 'x, '
+
+		printer.write(inputLine.strip(', ') + '\n')
+
+	printer.close()
+
+# ==========================================================================
+
+
+# generate2DData()
 # def ratioPerNum(numLimit, baseLimit):
 # ratioPerBase
