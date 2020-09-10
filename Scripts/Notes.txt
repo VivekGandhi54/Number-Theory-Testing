@@ -30,8 +30,6 @@
 
 --------------------------------------------------------------------------
 
-	HYPOTHESIS 2
-
 	For any n, gcd(Primes - 1) = (2**(divisibilityOf(n,2)+1) if i%2==0 else 1)
 	Therefore, for n = 2**k, gcd(Primes - 1) = 2*n
 									-	For n = 1, gcd(Primes - 1) = 1
