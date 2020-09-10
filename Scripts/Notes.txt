@@ -20,6 +20,8 @@
 
 --------------------------------------------------------------------------
 
+HYPOTHESIS 1
+
 	gcd(phi(weightedSum)) = (n^i)*(2^j)
 		Strong cases				-	For all n = 2*k, gcd = 2^(k+1) = 2*n
 		Exceptions (Run till 36)	-	For n = 9, gcd = (9^1)*(2^3)*3
@@ -29,6 +31,8 @@
 	The other factors seem to consist of smaller factors of n, not being able to form a full n^1 factor (n = 35?)
 
 --------------------------------------------------------------------------
+
+HYPOTHESIS 2
 
 	For any n, gcd(Primes - 1) = (2**(divisibilityOf(n,2)+1) if i%2==0 else 1)
 	Therefore, for n = 2**k, gcd(Primes - 1) = 2*n
