@@ -62,15 +62,15 @@ def pf(num, primeList = False):
 
 	primeFactors = []
 
-	retVal = str(num) + ' = '
+	retVal = f'{num} = '
 
 	for each in factor(num):
 		primeFactors.append(each[0])
 
 		if each[1] == 1:
-			retVal += str(each[0]) + ' x '
+			retVal += f'{each[0]} x '
 		else:
-			retVal += '(' + str(each[0]) + '**' + str(each[1]) + ') x '
+			retVal += f'({each[0]}**{each[1]}) x '
 
 	retVal = retVal.rstrip(' x ')
 
@@ -84,7 +84,7 @@ def pf(num, primeList = False):
 
 def is2n(num):
 	while num > 1:
-		if num%2 != 0:
+		if num & 0x1 == 1:
 			return False
 
 		num = num >> 1
@@ -112,7 +112,7 @@ def divisibilityOf(a, b):
 def log2(a):
 	div = 0
 	while a > 1:
-		if a%2 != 0:
+		if a & 0x1 == 1:
 			raise AssertionError('Not power of 2')
 
 		a = a >> 1
@@ -130,26 +130,14 @@ def log2(a):
 # print c -> [8, 10, 12]
 
 def aMinusB(a, b):
-	final_list = []
-
-	for each in a:
-		if each not in b:
-			final_list.append(each)
-
-	return final_list
+	return [each for each in a if each not in b]
 
 # ==========================================================================
 # removeDuplicates([1, 1, 1, 2, 3, 4, 4]) = [1, 2, 3, 4]
 # Works for unhashable types too, unlike other methods
 
 def removeDuplicates(duplicateList):
-	final_list = []
-
-	for each in duplicateList:
-		if each not in final_list:
-			final_list.append(each)
-
-	return final_list
+	return list(set(duplicateList))
 
 # ==========================================================================
 # ===						Totient functions							 ===
@@ -359,7 +347,7 @@ def getPrinter(fileName):
 # fileData = reader.read() [string]
 #
 # lineReader = reader.readlines()
-# for Line in lineReader:
+# for line in lineReader:
 # 	print(line)
 
 def getReader(fileName):
@@ -392,7 +380,7 @@ def editFile(fileName):
 
 	path = '"' + path + '"'
 
-	os.system('"C:/Program Files/Sublime Text 3/subl.exe" ' + path)
+	os.system('"C:/Program Files/Sublime Text/sublime_text.exe" ' + path)
 
 # ==========================================================================
 # Graph.html reads data.js, where data.js contains 3 variables

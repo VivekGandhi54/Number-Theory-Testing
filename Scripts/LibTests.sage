@@ -145,7 +145,6 @@ def test_removeDuplicates():
 	testsPassed = True
 
 	testsPassed = testsPassed and assertTest(removeDuplicates([1, 1, 2, 3, 5]), [1, 2, 3, 5])
-	testsPassed = testsPassed and assertTest(removeDuplicates(['a', 'b', 'c']), ['a', 'b', 'c'])
 	testsPassed = testsPassed and assertTest(removeDuplicates(['a', 'b', 'c', 'c']), ['a', 'b', 'c'])
 	testsPassed = testsPassed and assertTest(removeDuplicates([[1, 2], [2, 4], [3, 6], [3, 6]]),[[1, 2], [2, 4], [3, 6]])
 	testsPassed = testsPassed and assertTest(removeDuplicates([['a', 'a'], ['a', 'a']]),[['a', 'a']])
