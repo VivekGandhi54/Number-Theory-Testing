@@ -137,7 +137,13 @@ def aMinusB(a, b):
 # Works for unhashable types too, unlike other methods
 
 def removeDuplicates(duplicateList):
-	return list(set(duplicateList))
+	final_list = []
+
+	for each in duplicateList:
+		if each not in final_list:
+			final_list.append(each)
+
+	return final_list
 
 # ==========================================================================
 # ===						Totient functions							 ===
